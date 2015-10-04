@@ -1,13 +1,16 @@
-#+ setup, include=FALSE
-library(knitr)
-opts_chunk$set(eval = TRUE, warning = FALSE, message = FALSE, echo = FALSE)
-#+ echo = TRUE, indent = '    '
-#' ---
-#' title: "Mass shooting tracker 2013-2015"
-#' author: "Gabi Huiber"
-#' date: "October 4, 2015"
-#' ---
-#' 
+
+
+
+
+---
+title: "Mass shooting tracker 2013-2015"
+author: "Gabi Huiber"
+date: "September 2, 2015"
+---
+
+
+
+```r
 # LIBRARIES
 # 
 # All hail Hadley Wickham:
@@ -149,26 +152,26 @@ drawMap <- function(dead = TRUE) {
 risk_of_dying <- drawMap()
 risk_of_being_wounded <- drawMap(FALSE)
 cp_dead <- state_choropleth(risk_of_dying, 
-                            title = 'Risk of being killed, cases per 100M people')
+                            title = 'Daily risk of being killed in a mass shooting, by state, cases per 100M people')
 cp_wounded <- state_choropleth(risk_of_being_wounded, 
-                               title = 'Risk of being wounded, cases per 100M people')
-#' 
-#' Shooting data from [here](http://shootingtracker.com/wiki/Main_Page) covers 
-#' years 2013-2015 (as of this writing). If you pair it with 2014 population data from 
-#' [this .csv file](http://www.census.gov/popest/data/state/totals/2014/tables/NST-EST2014-01.csv), you can get an idea of the daily risk of dying or being 
-#' wounded in a mass shooting across the US, by state, as shown below:
+                               title = 'Daily risk of being wounded in a mass shooting, by state, cases per 100M people')
+```
+
+
+Shooting data from [here](http://shootingtracker.com/wiki/Main_Page) covers 
+years 2013-2015 (as of this writing). If you pair it with 2014 population data from 
+[this .csv file](http://www.census.gov/popest/data/state/totals/2014/tables/NST-EST2014-01.csv), you can get an idea of the daily risk of dying or being 
+wounded in a mass shooting across the US, by state, as shown below:
+
+
+```r
 cp_dead
 cp_wounded
 quiet.states <- names(states[,1][as.character(states[,2]) %in% quiet])
 nth <- rep(', ', length(quiet))
 nth[length(nth)-1] <- ' and '
 nth[length(nth)] <- '.'
-#' 
-#' There are `r length(quiet)` states that did not have a mass shooting since at least 2012. They are `r paste(gsub(' $','',quiet.states), nth, sep ='', collapse = '')`
-#' 
-#' The impetus for this came from [this WonkBlog post](http://www.washingtonpost.com/news/wonkblog/wp/2015/10/01/2015-274-days-294-mass-shootings-hundreds-dead/). A headline that points out that so far this year there have been more mass shootings than days will get anybody's attention. After one agrees that things are indeed bad, a fair question might be whether they're getting worse. 
-#' 
-#' The evidence of that is mixed. Translated to daily risk (as approximated by incidence of the dead and wounded per 100M person-days), this year is worse than 2014, about as bad as 2013 for the risk of dying, and worse for the risk of getting wounded:
-knitr::kable(peryear, digits = 2, big.mark = ',')
-#' 
-#' The numbers in the table above take the 2014 US population as baseline. If this population is higher in 2015 than it was in 2014, then the risks estimated on the bottom row of this table will be slightly lower, but this should be close enough for a rough idea. 
+```
+
+
+There are 4 states that did not have a mass shooting since at least 2012. They are Hawaii, New Hampshire, North Dakota and Wyoming.
