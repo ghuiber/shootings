@@ -171,4 +171,4 @@ nth[length(nth)] <- '.'
 #' The evidence of that is mixed. Translated to daily risk (as approximated by incidence of the dead and wounded per 100M person-days), this year is worse than 2014, about as bad as 2013 for the risk of dying, and worse for the risk of getting wounded:
 knitr::kable(peryear, digits = 2, big.mark = ',')
 #' 
-#' The numbers in the table above take the 2014 US population as baseline. If this population is higher in 2015 than it was in 2014, then the risks estimated on the bottom row of this table will be slightly lower, but this should be close enough for a rough idea. 
+#' The numbers in the table above take the 2014 US population as baseline. If this population is higher in 2015 than it was in 2014, then the risks estimated on the bottom row of this table will be slightly lower, but this should be close enough for a rough idea. The code is on [GitHub](https://github.com/ghuiber/shootings).
